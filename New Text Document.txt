@@ -1,0 +1,88 @@
+--Instalar VueCli
+npm install -g @vue/cli
+
+
+--Crear un nuevo proyecto Vue :
+vue create simple-counter
+
+
+--Navegar por el directorio del proyecto:
+cd simple-counter
+
+
+--Crear el componente Vue:
+Dentro del directorio src/components, crear un nuevo archivo llamado Counter.vue.
+
+
+--Codigo html de Counter.vue:
+<!-- src/components/Counter.vue -->
+<template>
+  <div>
+    <p>Current Count: {{ count }}</p>
+    <button @click="incrementCount">Increment</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      count: 0,
+    };
+  },
+  methods: {
+    incrementCount() {
+      this.count += 1;
+    },
+  },
+};
+</script>
+
+<style scoped>
+p {
+  font-size: 20px;
+}
+button {
+  font-size: 16px;
+  padding: 5px 10px;
+}
+</style>
+
+
+--Usar el componente en la aplicacion principal:
+Abrir src/App.vue y modificarlo para usar el componente Counter.
+
+Codigo html:
+<!-- src/App.vue -->
+<template>
+  <div id="app">
+    <Counter />
+  </div>
+</template>
+
+<script>
+import Counter from './components/Counter.vue';
+
+export default {
+  name: 'App',
+  components: {
+    Counter,
+  },
+};
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+
+--Ejecutar la aplicacion:
+npm run serve
+
+--Abrir el buscador y buscar http://localhost:8080.
